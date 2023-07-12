@@ -1,0 +1,28 @@
+{
+  "name": "aio",
+  "version": "0.1.0",
+  "description": "All-in-One CLI: one tool all things.",
+  "main": "src/index.js",
+  "bin": {
+    "aio": "src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "build": "pkg ."
+  },
+  "pkg": {
+    "outputPath": "release"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "pkg": "^5.8.1"
+  },
+  "dependencies": {
+    "commander": "^10.0.1",
+    "qrcode": "^1.5.3",
+    "serve-handler": "^6.1.5",
+    "sharp": "^0.32.1"
+  }
+}
