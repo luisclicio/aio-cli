@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const { program } = require('commander');
 
 const handlers = require('./handlers/index.js');
