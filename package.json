@@ -1,6 +1,6 @@
 {
   "name": "aio",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "All-in-One CLI: one tool all things.",
   "main": "src/index.js",
   "bin": {
@@ -8,10 +8,19 @@
   },
   "scripts": {
     "start": "node src/index.js",
-    "build": "pkg ."
+    "build": "pkg --compress GZip ."
   },
   "pkg": {
-    "outputPath": "release"
+    "outputPath": "binaries",
+    "targets": [
+      "node18-linux",
+      "node18-win",
+      "node18-macos"
+    ],
+    "assets": [
+      "node_modules/sharp/vendor/**/*",
+      "node_modules/sharp/build/Release/**/*"
+    ]
   },
   "keywords": [],
   "author": "",
