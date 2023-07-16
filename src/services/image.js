@@ -76,8 +76,21 @@ class ImageTransformer {
     });
   }
 
+  static extend(image, extend) {
+    const [width = 10, color = '#00000000'] = extend.split(',');
+
+    return image.extend({
+      top: Number(width),
+      bottom: Number(width),
+      left: Number(width),
+      right: Number(width),
+      background: color,
+    });
+  }
+
   static async transform(originalImage, options) {
-    const { resize, grayscale, blur, composite, tint, flip, extract } = options;
+    const { resize, grayscale, blur, composite, tint, flip, extract, extend } =
+      options;
     const image = sharp(await originalImage.toBuffer());
 
     if (extract) {
@@ -106,6 +119,10 @@ class ImageTransformer {
 
     if (composite) {
       ImageTransformer.composite(image, composite);
+    }
+
+    if (extend) {
+      ImageTransformer.extend(image, extend);
     }
 
     return image;

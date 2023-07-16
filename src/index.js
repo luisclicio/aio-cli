@@ -28,14 +28,15 @@ program
     'extract a region of the image (format: <left>,<top>,<width>,<height>)'
   )
   .option(
+    '-x, --extend <extend>',
+    'extends the border of the image, if the output format is JPEG the alpha channel is removed (format: <width>,<RGBA_color?>) (default: 10,#00000000)'
+  )
+  .option(
     '-r, --resize <width?,height?>',
     'new image size (format: <width>,<height>)'
   )
   .option('-g, --grayscale', 'apply grayscale filter to image')
-  .option(
-    '-b, --blur [blur]',
-    'apply gaussian blur filter to image (default: 1)'
-  )
+  .option('-b, --blur [blur]', 'apply blur filter to image (default: 1)')
   .option(
     '-c, --composite <composite>',
     'composite image with another image (format: <mask_image_path>,<position?>, where position is one of: center, top, left, right, bottom, topright, topleft, bottomright, bottomleft) (default: center)'
